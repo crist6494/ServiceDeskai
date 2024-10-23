@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: 
+      context: ./backend   # Ruta relativa a donde está el docker-compose.yml
+      dockerfile: Dockerfile
+    container_name: my_backend
+    ports:
+      - "3001:3001"
+    #environment:
+    #  - MONGODB_URI=mongodb://mongo:27017/tu_basedatos  # Cambia esto si es necesario
+    #depends_on:
+    #  - mongo  # Si tienes un contenedor de MongoDB, aquí es donde lo defines
