@@ -6,6 +6,8 @@ services:
     container_name: my_backend
     ports:
       - "3001:3001"
+    volumes:
+      - ./backend:backend
     #environment:
     #  - MONGODB_URI=mongodb://mongo:27017/tu_basedatos  # Cambia esto si es necesario
     #depends_on:

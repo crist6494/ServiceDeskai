@@ -1,11 +1,10 @@
 FROM node:22
 
-WORKDIR usr/src/app
+WORKDIR /backend
 
-COPY . .
-
+COPY package*.json ./
 RUN npm install
 
 EXPOSE 3001
 
-CMD ["node", "server.js"]
+CMD ["npm", "run", "dev"]
