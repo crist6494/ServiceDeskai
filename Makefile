@@ -1,5 +1,7 @@
 # Nombre del servicio
-SERVICE_NAME = backend
+SERVICE_BACKEND = backend
+SERVICE_FRONTEND = frontend
+SERVICE_MONGO = mongo
 
 # Comandos de Docker Compose
 DOCKER_COMPOSE = docker-compose
@@ -18,6 +20,6 @@ down:
 
 # Ver logs de los contenedores
 logs:
-	$(DOCKER_COMPOSE) logs -f $(SERVICE_NAME)
+	$(DOCKER_COMPOSE) logs -f $(SERVICE_BACKEND) $(SERVICE_FRONTEND) 
 
 .PHONY: build up down logs

@@ -4,9 +4,9 @@ services:
       context: ./frontend
     container_name: service_deskai_front
     ports:
-      - '3000:3000'
+      - '3001:3001'
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend:/frontend
     depends_on:
       - backend
 
@@ -19,7 +19,7 @@ services:
     env_file:
       - ./backend/.env
     volumes:
-      - ./backend:/app/backend
+      - ./backend:/backend
     depends_on:
       - mongo
 

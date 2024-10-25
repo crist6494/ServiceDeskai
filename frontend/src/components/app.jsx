@@ -9,7 +9,6 @@ function App() {
 }
 */
 
-import React from 'react';
 import './styles.css';
 import ImgUploader from './img-uploader/img-uploader';
 
@@ -17,7 +16,7 @@ function App() {
   return (
     <div className='container w-50  text-center p-2'>
         <h1 className='title'>Service Deskai</h1>
-        <p className='mb-4'>Take an image and discover what's in it</p>
+        <p className='mb-4'>Take an image and discover what is in it</p>
         <ImgUploader className="mb-3"/>
     </div>
   );
