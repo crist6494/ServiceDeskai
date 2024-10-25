@@ -1,14 +1,35 @@
 services:
-  backend:
-    build: 
-      context: ./backend   # Ruta relativa a donde está el docker-compose.yml
-      dockerfile: Dockerfile
-    container_name: my_backend
+  frontend:
+    build:
+      context: ./frontend
+    container_name: service_deskai_front
     ports:
-      - "3001:3001"
+      - '3000:3000'
     volumes:
-      - ./backend:backend
-    #environment:
-    #  - MONGODB_URI=mongodb://mongo:27017/tu_basedatos  # Cambia esto si es necesario
-    #depends_on:
-    #  - mongo  # Si tienes un contenedor de MongoDB, aquí es donde lo defines
+      - ./frontend:/app/frontend
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    container_name: service_deskai_back
+    ports:
+      - '5000:5000'
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/tu_basededatos
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: service_deskai_db
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
